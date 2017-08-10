@@ -1,18 +1,14 @@
 {
   "kinesis": {
-    "prefix_cluster1_stream_alert_kinesis": {
+    "jacknagztest_prod_stream_alert_kinesis": {
       "logs": [
-        "osquery",
-        "cloudwatch",
-        "cloudtrail"
+        "cloudwatch"
       ]
     }
   },
   "s3": {
-    "example_s3_bucket": {
+    "jacknagztest.prod.streamalert.cloudtrail": {
       "logs": [
-        "carbonblack",
-        "osquery",
         "cloudtrail"
       ]
     }
