@@ -3,6 +3,7 @@ from stream_alert.rule_processor.rules_engine import StreamRules
 rule = StreamRules.rule
 disable = StreamRules.disable()
 
+@disable
 @rule(logs=['cloudtrail:events'],
       matchers=[],
       outputs=['aws-s3:sample_bucket', 'aws-lambda:sample_lambda',

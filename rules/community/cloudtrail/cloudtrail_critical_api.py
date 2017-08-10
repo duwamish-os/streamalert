@@ -4,12 +4,10 @@ from helpers.base import in_set
 rule = StreamRules.rule
 disable = StreamRules.disable()
 
-
+@disable
 @rule(logs=['cloudtrail:api_events'],
       matchers=[],
-      outputs=['aws-s3:sample_bucket', 'aws-lambda:sample_lambda',
-               'pagerduty:sample_integration', 'phantom:sample_integration',
-               'slack:sample_channel'])
+      outputs=['aws-s3:main'])
 def cloudtrail_critical_api(rec):
     """
     author:           airbnb_csirt
@@ -41,3 +39,21 @@ def cloudtrail_critical_api(rec):
     }
 
     return in_set(rec['eventName'], events_whitelist)
+
+@rule(logs=['cloudwatch:events'],
+      outputs=['aws-s3:main'],
+      req_subkeys={'detail': ['eventName']})
+def cloudtrail_create_or_delete_anything(rec):
+    """Trigger an alert when anything is created"""
+    return in_set(rec['detail']['eventName'], {
+        'Create*',
+        'Delete*'
+    })
+
+@rule(logs=['cloudtrail:v1.04', 'cloudtrail:v1.05'],
+      outputs=['aws-s3:main'])
+def cloudtrail_s3_source_create_or_delete(rec):
+    return in_set(rec['eventName'], {
+        'Create*',
+        'Delete*'
+    })

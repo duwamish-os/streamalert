@@ -1,0 +1,66 @@
+{
+  "records": [
+    {
+      "data": {
+        "Records": [
+          {
+            "eventVersion": "1.04",
+            "userIdentity": {
+              "type": "IAMUser",
+              "principalId": "AIDAJLVSSCXCA7KGEJ2CI",
+              "arn": "arn:aws:iam::454267907943:user/khaled",
+              "accountId": "454267907943",
+              "accessKeyId": "AKIAJY5O6M6WGY5DPY7Q",
+              "userName": "khaled"
+            },
+            "eventTime": "2017-08-10T00:18:50Z",
+            "eventSource": "kinesis.amazonaws.com",
+            "eventName": "CreateStream",
+            "awsRegion": "us-west-2",
+            "sourceIPAddress": "12.17.170.21",
+            "userAgent": "aws-cli/1.11.122 Python/2.7.11 Darwin/16.7.0 botocore/1.5.85",
+            "requestParameters": {
+              "shardCount": 1,
+              "streamName": "foobaz"
+            },
+            "responseElements": null,
+            "requestID": "c301d515-fb40-eb5c-9104-7dbf853886f4",
+            "eventID": "357aa0c7-d23c-4510-af45-5f38f6aa5e94",
+            "eventType": "AwsApiCall",
+            "recipientAccountId": "454267907943"
+          },
+          {
+            "eventVersion": "1.04",
+            "userIdentity": {
+              "type": "IAMUser",
+              "principalId": "AIDAJLVSSCXCA7KGEJ2CI",
+              "arn": "arn:aws:iam::454267907943:user/khaled",
+              "accountId": "454267907943",
+              "accessKeyId": "AKIAJY5O6M6WGY5DPY7Q",
+              "userName": "khaled"
+            },
+            "eventTime": "2017-08-10T00:20:49Z",
+            "eventSource": "kinesis.amazonaws.com",
+            "eventName": "DeleteStream",
+            "awsRegion": "us-west-2",
+            "sourceIPAddress": "12.17.170.21",
+            "userAgent": "aws-cli/1.11.122 Python/2.7.11 Darwin/16.7.0 botocore/1.5.85",
+            "requestParameters": {
+              "streamName": "foobaz"
+            },
+            "responseElements": null,
+            "requestID": "ed8a7280-c413-9ab5-bf8f-dba193869826",
+            "eventID": "2fa3d86e-0b1f-45c6-bc75-093c7e41c3c7",
+            "eventType": "AwsApiCall",
+            "recipientAccountId": "454267907943"
+          }
+        ]
+      },
+      "description": "CloudTrail - Create or Delete - S3",
+      "service": "s3",
+      "source": "jacknagztest.prod.streamalert.cloudtrail",
+      "trigger_count": 2,
+      "trigger": true
+    }
+  ]
+}
